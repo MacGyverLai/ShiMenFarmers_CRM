@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+              http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5"
+         xmlns="http://java.sun.com/xml/ns/javaee">
+
+  <display-name>Shi Men Farmers</display-name>
+	<description>
+		Shi Men Farmers web application project.
+	</description>
+
+  <session-config>
+	<session-timeout>500</session-timeout>
+  </session-config>
+
+  <!-- Default page to serve -->
+  <welcome-file-list>
+	<welcome-file>WEB-INF/pages/login.do</welcome-file>
+  </welcome-file-list>
+
+  <error-page>
+	<error-code>404</error-code>
+	<location>WEB-INF/pages/404.jsp</location>
+  </error-page>
+  
+  <listener>
+  	<listener-class>tw.lai.macgyver.shimen.crm.module.ObjectifyRegisterListener</listener-class>
+  </listener>
+
+  <!-- Servlets -->
+  <servlet>
+    <servlet-name>dispatcherServlet</servlet-name>
+	<servlet-class>
+		org.springframework.web.servlet.DispatcherServlet
+	</servlet-class>
+	<init-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/mvc-config.xml</param-value>
+	</init-param>
+	<load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  <servlet-mapping>
+		<servlet-name>dispatcherServlet</servlet-name>
+		<url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  
+
+</web-app>
