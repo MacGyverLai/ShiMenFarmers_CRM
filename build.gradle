@@ -70,6 +70,8 @@ dependencies {
     compile 'net.sf.jasperreports:jasperreports:4.1.+'
     compile 'com.google.code.gson:gson:2.3.+'
     
+    compile 'com.googlecode.objectify:objectify:4.1.+'
+    
     // MDC 要用這個舊版
     compile 'log4j:log4j:1.2.+'
     

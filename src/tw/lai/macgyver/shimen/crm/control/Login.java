@@ -1,5 +1,8 @@
 package tw.lai.macgyver.shimen.crm.control;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -20,15 +23,16 @@ public class Login {
 	@RequestMapping("/login.do")
 	public ModelAndView checkLogin(HttpServletRequest req, HttpServletResponse res)
 			throws Exception {
-		System.out.println("into lgonin.do....");
 		ModelAndView result = null;
+		Logger mylog = Logger.getLogger(this.getClass().getName());
+		mylog.log(Level.INFO, "into lgonin.do....");
 		
 		User user = UserServiceFactory.getUserService().getCurrentUser();
 		
 		if (user != null) {
-			System.out.println("Nick name = " + user.getNickname());
-			System.out.println("UserId = " + user.getUserId());
-			System.out.println("Email = " + user.getEmail());
+			mylog.info("Nick name = " + user.getNickname());
+			mylog.info("UserId = " + user.getUserId());
+			mylog.info("Email = " + user.getEmail());
 		} else {
 			result = new ModelAndView("login");
 		}
@@ -42,7 +46,7 @@ public class Login {
 		// async without the now()
 		ofy.save().entity(customer).now();
 		
-		System.out.println("Customer Id = " + customer.getId());
+		mylog.info("Customer Id = " + customer.getId());
 		
 		return result;
 	}

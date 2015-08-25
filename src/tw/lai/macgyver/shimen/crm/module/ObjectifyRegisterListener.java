@@ -1,5 +1,7 @@
 package tw.lai.macgyver.shimen.crm.module;
 
+import java.util.logging.Logger;
+
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
@@ -20,6 +22,9 @@ public class ObjectifyRegisterListener implements ServletContextListener {
 	@Override
 	public void contextInitialized(ServletContextEvent arg0) {
 		// TODO Auto-generated method stub
+		Logger mylog = Logger.getLogger(this.getClass().getName());
+		mylog.info("into Context initialized....");
+		
 		ObjectifyService.register(Customer.class);
 		ObjectifyService.register(Order.class);
 		ObjectifyService.register(Product.class);

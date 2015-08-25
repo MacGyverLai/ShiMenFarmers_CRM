@@ -16,7 +16,6 @@
 	<link type="text/css" href="css/jquery-ui-1.7.2.custom.css" rel="stylesheet" />
 	<link type="text/css" href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 	
-	</style>
 </head>
 <body>
 
