@@ -1,5 +1,6 @@
 package tw.lai.macgyver.shimen.crm.control;
 
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import tw.lai.macgyver.shimen.crm.entity.Customer;
+import tw.lai.macgyver.tools.PowerVoDisplay;
 
 import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserServiceFactory;
@@ -34,9 +36,10 @@ public class Login {
 			mylog.info("UserId = " + user.getUserId());
 			mylog.info("Email = " + user.getEmail());
 		} else {
-			result = new ModelAndView("login");
+			result = new ModelAndView("main");
 		}
 		
+		/* for data store testing
 		Customer customer = new Customer();
 		customer.setName("MacGyver");
 		customer.setCellPhone("0939-873125");
@@ -47,6 +50,21 @@ public class Login {
 		ofy.save().entity(customer).now();
 		
 		mylog.info("Customer Id = " + customer.getId());
+		 */
+		
+		return result;
+	}
+	
+	@RequestMapping("/test.do")
+	public ModelAndView testDo(HttpServletRequest req, HttpServletResponse res)
+			throws Exception {
+		ModelAndView result = null;
+		Logger mylog = Logger.getLogger(this.getClass().getName());
+		
+		List<Customer> customerList = ObjectifyService.ofy().load().type(Customer.class)
+				.order("company").list();
+		mylog.info("Customer size = " + customerList.size());
+		mylog.info(new PowerVoDisplay().diplayToString(customerList.toArray()));
 		
 		return result;
 	}

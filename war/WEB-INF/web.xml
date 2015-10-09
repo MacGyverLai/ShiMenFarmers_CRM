@@ -16,7 +16,7 @@
 
   <!-- Default page to serve -->
   <welcome-file-list>
-	<welcome-file>WEB-INF/pages/login.do</welcome-file>
+	<welcome-file>login.do</welcome-file>
   </welcome-file-list>
 
   <error-page>

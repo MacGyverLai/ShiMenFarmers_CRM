@@ -2,6 +2,7 @@ package tw.lai.macgyver.shimen.crm.entity;
 
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
+import com.googlecode.objectify.annotation.Index;
 
 @Entity
 public class Customer implements Base<Customer> {
@@ -17,6 +18,7 @@ public class Customer implements Base<Customer> {
 	
 	public String cellPhone = null;
 	
+	@Index
 	public String company = null;
 	
 	public Long getId() {
