@@ -45,3 +45,7 @@ Temporary Items
 # MacGyver customer
 .gradle
 gradle
+.classpath
+.project
+gwt-unitCache
+.settings
