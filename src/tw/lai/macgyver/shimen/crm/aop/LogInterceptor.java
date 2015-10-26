@@ -1,7 +1,10 @@
 package tw.lai.macgyver.shimen.crm.aop;
 
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -49,4 +52,5 @@ public class LogInterceptor {
 		
 		return result;
 	}
+	
 }

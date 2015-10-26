@@ -38,12 +38,12 @@ public class Main {
 	public ModelAndView checkLogin(HttpServletRequest req, HttpServletResponse res)
 			throws Exception {
 		ModelAndView result = null;
-		Logger mylog = Logger.getLogger(this.getClass().getName());
+		Logger gLog = Logger.getLogger(this.getClass().getName());
 		int currentPage = 1;
 		
 		List<Customer> customerList = this.customerDao.retrieveCustomerByPage(currentPage);
 		int rowAmount = this.customerDao.retreeveCustomerAmount();
-		mylog.info("CustomerList size = " + customerList.size());
+		gLog.info("CustomerList size = " + customerList.size());
 		
 		result = new ModelAndView("customer_list");
 		result.addObject("customerList", customerList.toArray());
@@ -54,21 +54,65 @@ public class Main {
 		return result;
 	}
 	
-	@RequestMapping("/CustomerDeatil.do")
-	public ModelAndView showCustomerDetail(HttpServletRequest req, HttpServletResponse res,
-			@RequestParam(value = "customer-id", required = false) String customerId)
+	@RequestMapping("/QueryCustomer.do")
+	public ModelAndView queryCustomer(HttpServletRequest req, HttpServletResponse res,
+			@RequestParam(value = "keyword", required = false) String keyword)
 			throws Exception {
 		ModelAndView result = null;
-		Logger mylog = Logger.getLogger(this.getClass().getName());
+		Logger gLog = Logger.getLogger(this.getClass().getName());
+		
+		
+		
+		return result;
+	}
+	
+	@RequestMapping("/CustomerDeatil.do")
+	public ModelAndView showCustomerDetail(HttpServletRequest req, HttpServletResponse res,
+			@RequestParam(value = "customer_id", required = false) String customerId)
+			throws Exception {
+		ModelAndView result = null;
+		Logger gLog = Logger.getLogger(this.getClass().getName());
 		
 		Customer customer = null;
 		if (customerId != null && !"".equals(customerId))
 			customer = this.customerDao.retrieveCustomerById(Long.valueOf(customerId));
 		
-		mylog.info("customer = " + customer);
+		gLog.info("customer = " + customer);
 		
 		result = new ModelAndView("customer_detail");
 		result.addObject("customer", customer);
+		
+		return result;
+	}
+	
+	@RequestMapping("/CustomerSave.do")
+	public ModelAndView saveCustomer(HttpServletRequest req, HttpServletResponse res,
+			@ModelAttribute("customer") Customer customer)
+			throws Exception {
+		ModelAndView result = null;
+		Logger gLog = Logger.getLogger(this.getClass().getName());
+		
+		boolean dbRtn = false;
+		if (customer != null) {
+			dbRtn = this.customerDao.saveCustomer(customer);
+			gLog.info("Save customer result: " + dbRtn);
+		}
+		res.getWriter().print(dbRtn);
+		
+		return result;
+	}
+	
+	@RequestMapping("/CustomerDelete.do")
+	public ModelAndView deleteCustomer(HttpServletRequest req, HttpServletResponse res,
+			@RequestParam("customer_id") String customerId)
+			throws Exception {
+		ModelAndView result = null;
+		Logger gLog = Logger.getLogger(this.getClass().getName());
+		
+		Customer customer = new Customer();
+		customer.setId(Long.valueOf(customerId));
+		boolean dbRtn = this.customerDao.deleteCustomer(customer);
+		res.getWriter().print(dbRtn);
 		
 		return result;
 	}
