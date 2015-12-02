@@ -14,7 +14,7 @@
 <title>Welcome to Shi-Men Farmers Customer Manager System</title>
 
 <script type="text/javascript"
-	src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
 <script type="text/javascript"
 	src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
@@ -33,6 +33,8 @@
 
 <link rel="stylesheet"
 	href="https://code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.css" />
+
+<!-- For JQuery UI menu tag style, not to need now
 <style>
 .ui-tabs-vertical {
 	width: 100%;
@@ -69,29 +71,34 @@
 	width: 100%;
 }
 </style>
+ -->
 
 <script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/product.js"></script>
 </head>
 <body>
 	<div class="container-fluid">
 		<div class="row">
-			<h2>標頭</h2>
+			<div class="col-md-2">
+				<img alt="Banner" src="img/banner.png">
+			</div>
+			<div class="col-md-10 banner-extend"></div>
 		</div>
 		<div class="row">
 			<h3>Logo 或選單</h3>
 		</div>
 		<div class="row" id="tab_menu">
 			<div class="col-md-2">
-				<ul>
-					<li><a href="#tab-1">首頁</a></li>
-					<li><a href="CustomerManage.do">客戶管理</a></li>
-					<li><a href="">訂單管理</a></li>
-					<li><a href="#">產品管理</a></li>
-					<li><a href="#">報表資訊</a></li>
-				</ul>
+				<ul class="nav nav-pills nav-stacked">
+                    <li class="active"><a role="presentation">首頁</a></li>
+                    <li><a data-url="CustomerManage.do">客戶管理</a></li>
+                    <li><a data-url="OrderManage.do">訂單管理</a></li>
+                    <li><a data-url="ProductManage.do">產品管理</a></li>
+                    <li><a data-url="">報表資訊</a></li>
+                </ul>
 			</div>
 			<div id="tab-content" class="col-md-10">
-				<div id="tab-1">我是首頁</div>
+				<!-- <div id="tab-1">我是首頁</div>  -->
 			</div>
 		</div>
 		<div class="row">

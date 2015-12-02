@@ -10,18 +10,45 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Welcome to Jin Fa Tan Customer Manager System</title>
+	<title>Welcome to  ShiMen Farmers Customer Manager System</title>
 	
-	<link type="text/css" href="css/JinFaTan.css" rel="stylesheet" />
-	<link type="text/css" href="css/jquery-ui-1.7.2.custom.css" rel="stylesheet" />
-	<link type="text/css" href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<script type="text/javascript"
+	src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+	<script type="text/javascript"
+		src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 	
+	<!-- 最新編譯和最佳化的 CSS -->
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+	
+	<!-- 選擇性佈景主題 -->
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+	
+	<!-- 最新編譯和最佳化的 JavaScript -->
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+	
+	<link rel="stylesheet"
+		href="https://code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.css" />
 </head>
 <body>
-
-	<h3>
-	請先 <a href="${loginURI}">登入</a> Google 帳號
-	</h3>
-
+	<div class="container-fluid">
+		<div class="row text-center">
+			<h3>
+			請先登入 Google 帳號<br/>
+			</h3> 
+			<a 
+				href="https://accounts.google.com/o/oauth2/auth?
+				client_id=750099995851-osh54a6sv38evrhvha4bvsluvgodc8t2.apps.googleusercontent.com&
+				response_type=code&
+				scope=openid%20email&
+				redirect_uri=https://shimen-farmers-crm.appspot.com/aouth2callback.do&
+				state=random_code">
+				<img src="img/btn_google+_signin_dark_normal_web.png" />
+			</a>
+		</div>
+	</div>
 </body>
 </html>

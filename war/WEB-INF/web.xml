@@ -11,12 +11,12 @@
 	</description>
 
   <session-config>
-	<session-timeout>500</session-timeout>
+	<session-timeout>120</session-timeout>
   </session-config>
 
   <!-- Default page to serve -->
   <welcome-file-list>
-	<welcome-file>login.do</welcome-file>
+	<welcome-file>showMain.do</welcome-file>
   </welcome-file-list>
 
   <error-page>

@@ -8,6 +8,7 @@ import javax.servlet.ServletContextListener;
 import tw.lai.macgyver.shimen.crm.entity.Customer;
 import tw.lai.macgyver.shimen.crm.entity.Order;
 import tw.lai.macgyver.shimen.crm.entity.Product;
+import tw.lai.macgyver.shimen.crm.entity.User;
 
 import com.googlecode.objectify.ObjectifyService;
 
@@ -25,6 +26,7 @@ public class ObjectifyRegisterListener implements ServletContextListener {
 		Logger mylog = Logger.getLogger(this.getClass().getName());
 		mylog.info("into Context initialized....");
 		
+		ObjectifyService.register(User.class);
 		ObjectifyService.register(Customer.class);
 		ObjectifyService.register(Order.class);
 		ObjectifyService.register(Product.class);
