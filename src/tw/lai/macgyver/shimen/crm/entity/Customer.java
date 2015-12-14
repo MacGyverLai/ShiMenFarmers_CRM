@@ -8,18 +8,18 @@ import com.googlecode.objectify.annotation.Index;
 public class Customer implements Base<Customer> {
 
 	@Id
-	public Long id = null;
+	private Long id = null;
 	
-	public String name = null;
+	private String name = null;
 	
-	public String address = null;
+	private String address = null;
 	
-	public String telPhone = null;
+	private String telPhone = null;
 	
-	public String cellPhone = null;
+	private String cellPhone = null;
 	
 	@Index
-	public String company = null;
+	private String company = null;
 	
 	public Long getId() {
 		return id;

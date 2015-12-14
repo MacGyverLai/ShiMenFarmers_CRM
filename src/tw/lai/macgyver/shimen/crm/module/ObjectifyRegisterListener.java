@@ -7,6 +7,7 @@ import javax.servlet.ServletContextListener;
 
 import tw.lai.macgyver.shimen.crm.entity.Customer;
 import tw.lai.macgyver.shimen.crm.entity.Order;
+import tw.lai.macgyver.shimen.crm.entity.OrderDetail;
 import tw.lai.macgyver.shimen.crm.entity.Product;
 import tw.lai.macgyver.shimen.crm.entity.User;
 
@@ -29,6 +30,7 @@ public class ObjectifyRegisterListener implements ServletContextListener {
 		ObjectifyService.register(User.class);
 		ObjectifyService.register(Customer.class);
 		ObjectifyService.register(Order.class);
+		ObjectifyService.register(OrderDetail.class);
 		ObjectifyService.register(Product.class);
 	}
 

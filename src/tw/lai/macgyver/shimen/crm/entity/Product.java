@@ -8,16 +8,16 @@ import com.googlecode.objectify.annotation.Index;
 public class Product implements Base<Product> {
 	
 	@Id
-	public Long id = null;
+	private Long id = null;
 	
 	@Index
-	public String category = null;
+	private String category = null;
 	
-	public String name = null;
+	private String name = null;
 	
-	public Integer price = null;
+	private Integer price = null;
 	
-	public String description = null;
+	private String description = null;
 	
 	public Long getId() {
 		return id;
